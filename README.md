@@ -1,4 +1,4 @@
-[Latest Version = 0.16]
+[Latest Version = 0.3]
 
 ##[Installation]
 
@@ -12,73 +12,37 @@
 	import Fancy_term
 	my_style    = Fancy_term.Style(color=Fancy_term.colors.red,substyle='bold,faded')
 	other_style = Fancy_term.Style(color=Fancy_term.colors.blue,substyle='bold')
-	
+	sprint = Fancy_term.Smart_print()
+	sprint.use(my_style)
+	sprint("test")	#apply style to string
+	sprint.set(other_style)	#sets a style for future use
+	sprint.reset()	#removes the styles
 ```
 
-#[Optional]
-
-Create an option object :
+#[Colors and substyles available]
 ```python
-	options = bar.Progress_bar_options("kill_when_finished",taskname="bar_name")
-	some_bar = bar.Progress_bar(options=options)
-```
-Or
-```python
-	some_bar = bar.Progress_bar()
-	some_bar.set_options(options)
-```
+	Colors_available    = ["red","white","green","yellow","purple","rose","blue","reset"]
+	Substyles_available = ["bold","faded","less_faded","underligned","blinking","background","normal"]
 
-#[Others Options]
+	#you can print it by typing :
+	 	print(Fancy_term.Colors_available)
+		print(Fancy_term.Substyles_available)
 
-You can append multiple bars to the handler :
-```python
-	bar_handler.append(bar1,bar2)
-	bar_handler.append([bar1,bar2])
 ```
-
 #[Methods available]
 
 
-
 ```python
-	#[Progress_bar]
-		update(float)	#updates the bar to the float
-		set_options(Fancy_Progressbar.Progress_bar_options) #sets options using an option object
-		kill_when_finished()	#kill the handler its located in when finished method is called
-		style(Fancy_Term.Style)	#sets a style from the Fancy_Term lib
-		no_style()	#removes the style
-		hide()
-		show()
-		delete()
-		finish()
-		current_task(string)	#sets the current task on a second line under the bar
-		text(string)	#sets text on a bar
-		blank()	#sets a blank bar
-		print_bar()	#used by the handler
-
-	#[Progress_bar_options]
-		add_argument(*args,**kwargs)
-		#can be used to set this options
-			# taskname
-			# current
-			# style
-			# max_lenght
-			# hidden
-			# blank
-			# done
-			# pointer (not supported yet)
-			# kill_when_finished
-
-	#[Progress_bar_handler]
-		append()
-		remove()
-		pause()
-		resume()
-		kill()
-		exchange_by_index(index1,index2) #exchange the order of the bar --> changes display order
-		exchange_by_bar(bar1,bar2)
-		start() #starts the handler
-
-
-
+	#[Smart_print]
+		use(Fancy_term.Style) #sets a style for the printer
+		set(Fancy_term.Style) #sets a style for future prints
+		reset()
+		__call__(string) #prints the string using the selected style
 ```
+#[Functions available]
+```python
+	#[printc]
+	printc(string, Fancy_term.Style) #prints string using the Style
+```
+
+This library is compatible with the Fancy_progressbar library
