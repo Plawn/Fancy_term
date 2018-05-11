@@ -28,7 +28,9 @@ class Smart_print:
 		Can be used to set a style or directly used as a print function
 	"""
 	def __init__(self,*args,**kwargs):
-		self.actual_style = None
+		self.default_style = Style(color=colors.white)
+		self.error_free = kwargs.get('error_free',False)
+		self.actual_style = kwargs.get('style',None) if not self.error_free and kwargs.get('style') == None else self.default_style
 		self.up = '\x1b[1A'
 		self._reset = colors.reset
 		self.end = "\033[m"
@@ -40,7 +42,10 @@ class Smart_print:
 			print(self.up,style(),sep="")
 			self.actual_style = style[0]
 		else :
-			print(self.end,self.actual_style.str(),self.up,sep='')
+			if self.actual_style != None :
+				print(self.end,self.actual_style.str(),self.up,sep='')
+			else :
+				print("no style defined")
 	def use(self,style):
 		self.actual_style = style
 	def reset(self):
@@ -115,8 +120,3 @@ if __name__ == '__main__':
 	c.reset()
 
 # <-------------- test unit --------------> #
-
-
-
-
-

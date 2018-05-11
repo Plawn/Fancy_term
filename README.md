@@ -1,4 +1,4 @@
-[Latest Version = 0.4]
+[Latest Version = 0.5]
 
 ##[Installation]
 
@@ -42,7 +42,7 @@
 #[Functions available]
 ```python
 	#[printc]
-		printc(string, Fancy_term.Style) #prints string using the Style
+		sprint(string, Fancy_term.Style) #prints string using the Style
 ```
 
 This library is compatible with the Fancy_progressbar library
