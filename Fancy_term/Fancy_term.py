@@ -4,7 +4,7 @@ class _colors:
 	def __init__(self):
 		self._beginning = "\033["
 		self.red    = "31;10m"
-		self.white  = "00;10m"
+		self.white  = "31;97m"
 		self.green  = "32;400m"
 		self.yellow = "33;40m"
 		self.purple = "34;40m"
@@ -30,7 +30,9 @@ class Smart_print:
 	def __init__(self,*args,**kwargs):
 		self.default_style = Style(color=colors.white)
 		self.error_free = kwargs.get('error_free',False)
-		self.actual_style = kwargs.get('style',None) if not self.error_free and kwargs.get('style') == None else self.default_style
+		self.actual_style = kwargs.get('style',None)
+		if self.actual_style == None and self.error_free :
+			self.actual_style = self.default_style
 		self.up = '\x1b[1A'
 		self._reset = colors.reset
 		self.end = "\033[m"
