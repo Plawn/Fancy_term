@@ -19,7 +19,7 @@ Colors_available    = ["red","white","green","yellow","purple","rose","blue","re
 Substyles_available = ["bold","faded","less_faded","underligned","blinking","background","normal"]
 # <-------------- colors --------------> #
 
-def sprint(string,style):
+def printc(string,style):
 	print(style.str(),string,colors.end,sep="")
 
 
