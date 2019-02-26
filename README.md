@@ -1,12 +1,12 @@
-[Latest Version = 0.7]
+[Latest Version = 0.10]
 
-##[Installation]
+## [Installation]
 
 ```shell
 	pip install Fancy_term
 ```
 
-##[How to use]
+## [How to use]
 
 ```python
 	import Fancy_term
@@ -19,7 +19,7 @@
 	sprint.reset()	#removes the styles
 ```
 
-#[Colors and substyles available]
+### [Colors and substyles available]
 ```python
 	Colors_available    = ["red","white","green","yellow","purple","rose","blue","reset"]
 	Substyles_available = ["bold","faded","less_faded","underligned","blinking","background","normal"]
@@ -29,7 +29,7 @@
 		print(Fancy_term.Substyles_available)
 
 ```
-#[Methods available]
+### [Methods available]
 
 
 ```python
@@ -39,7 +39,7 @@
 		reset()
 		__call__(string) #prints the string using the selected style
 ```
-#[Functions available]
+### [Functions available]
 ```python
 	#[printc]
 		printc(string, Fancy_term.Style) #prints string using the Style
